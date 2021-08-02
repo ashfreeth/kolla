@@ -23,8 +23,7 @@ LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build
             'erlang-22.*',
             'rabbitmq-server-3.8.14'
         ] %}
-    {% else %}
-    {% if base_arch == 's390x' %}
+    {% elif base_arch == 's390x' %}
         {% set rabbitmq_packages = rabbitmq_packages + [
             'erlang-22.*',
             'rabbitmq-server-3.8.*'
