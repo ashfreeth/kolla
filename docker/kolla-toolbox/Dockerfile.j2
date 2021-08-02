@@ -36,16 +36,11 @@ LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build
         'python3-devel',
         ] %}
 
-    {% if base_arch == 'aarch64' %}
+    {% if base_arch in ['aarch64', 's390x'] %}
         {% set kolla_toolbox_packages = kolla_toolbox_packages + [
             'erlang-22.*',
             'rabbitmq-server-3.8.14'
             ] %}
-    {% elif base_arch == 's390x' %}
-        {% set rabbitmq_packages = rabbitmq_packages + [
-            'erlang-22.*',
-            'rabbitmq-server-3.8.*'
-        ] %}
     {% else %}
         {% set kolla_toolbox_packages = kolla_toolbox_packages + [
             'erlang-23.*',
