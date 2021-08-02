@@ -36,7 +36,7 @@ LABEL maintainer="{{ maintainer }}" name="{{ image_name }}" build-date="{{ build
         'python3-devel',
         ] %}
 
-    {% if base_arch in ['aarch64', 's390x'] %}
+    {% if base_arch == 'aarch64' %}
         {% set kolla_toolbox_packages = kolla_toolbox_packages + [
             'erlang-22.*',
             'rabbitmq-server-3.8.14'
