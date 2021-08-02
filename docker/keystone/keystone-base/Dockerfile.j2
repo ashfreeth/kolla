@@ -29,7 +29,6 @@ RUN mkdir -p /var/www/cgi-bin/keystone \
         {% set keystone_base_packages = [
             'keystone',
             'libapache2-mod-auth-mellon',
-            'libapache2-mod-auth-openidc',
             'python3-ldappool'
         ] %}
 
@@ -55,7 +54,6 @@ RUN dnf module enable mod_auth_openidc -y
     {% elif base_package_type == 'deb' %}
         {% set keystone_base_packages = [
             'libapache2-mod-auth-mellon',
-            'libapache2-mod-auth-openidc',
             'libldap2-dev',
             'libsasl2-dev',
         ] %}
